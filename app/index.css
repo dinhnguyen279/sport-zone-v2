@@ -1250,8 +1250,8 @@ button:hover::after {
     font-size: 25px;
   }
   .quantity-cart:before {
-    top: -20%;
-    right: 5%;
+    top: 5%;
+    right: 15%;
     font-size: 0.8rem;
   }
 
@@ -5406,6 +5406,10 @@ html {
   width: 100%;
   color: black;
   z-index: 10;
+}
+
+.close-Modalpopup{
+  float: right;
 }
 
 .close-popup {

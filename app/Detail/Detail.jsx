@@ -311,28 +311,28 @@ export function Detail() {
                 <ul className="list-unstyled d-inline-block">
                   <li className="py-2 mb-1 bg-white text-muted">
                     <strong className="text-uppercase text-dark">Thể loại:</strong>
-                    <a className="ml-2">{detail.category}</a>
+                    <span className="ml-2">{detail.category}</span>
                   </li>
                   <li className="py-2 mb-1 size-products">
                     <strong className="text-uppercase text-dark mr-2">Size:</strong>
                     {arrSize.length === 0
                       ? ''
                       : arrSize.map((val, idx) => {
-                          return (
-                            <div className="size-product-item" key={idx + 1}>
-                              <input
-                                className="selector-item_radio"
-                                id={val}
-                                type="radio"
-                                name="size"
-                                defaultChecked={arrSize[0] === val ? true : false}
-                              ></input>
-                              <label className="selector-item_label" htmlFor={val} onClick={() => selectSize(val)}>
-                                {val}
-                              </label>
-                            </div>
-                          );
-                        })}
+                        return (
+                          <div className="size-product-item" key={idx + 1}>
+                            <input
+                              className="selector-item_radio"
+                              id={val}
+                              type="radio"
+                              name="size"
+                              defaultChecked={arrSize[0] === val ? true : false}
+                            ></input>
+                            <label className="selector-item_label" htmlFor={val} onClick={() => selectSize(val)}>
+                              {val}
+                            </label>
+                          </div>
+                        );
+                      })}
                   </li>
                 </ul>
               </div>
@@ -353,22 +353,22 @@ export function Detail() {
 
         <ul className="nav nav-tabs border-0">
           <li className="nav-item">
-            <a
+            <button
               className="nav-link fix_comment"
               onClick={() => handlerReview('description')}
               style={review === 'description' ? { backgroundColor: '#383838', color: '#ffffff' } : { color: '#383838' }}
             >
               Mô tả
-            </a>
+            </button>
           </li>
           <li className="nav-item">
-            <a
+            <button
               className="nav-link fix_comment"
               onClick={() => handlerReview('review')}
               style={review === 'review' ? { backgroundColor: '#383838', color: '#ffffff' } : { color: '#383838' }}
             >
               Đánh giá
-            </a>
+            </button>
           </li>
         </ul>
         <div className="tab-content mb-5">
@@ -509,12 +509,13 @@ export function Detail() {
                           className="product-view d-block h-100 bg-cover bg-center"
                           src={value.avt}
                           data-lightbox={`product_${value._id}`}
+                          alt='img-product'
                         />
                       </div>
                       <div className="col-lg-6">
                         {/* Để tắt modal phải có class="close" và data-dissmiss="modal" và aria-label="Close" */}
                         <a
-                          className="close p-4"
+                          className="close p-4 close-Modalpopup"
                           type="button"
                           href="#section_product"
                           data-dismiss="modal"
@@ -568,7 +569,7 @@ export function Detail() {
                             </span>
                           </Card.Text>
                           <p className="text-small mb-4">{value.description}</p>
-                          <div className="row align-items-stretch mb-4">
+                          <div className="mb-4">
                             <div className="col-sm-12 pl-sm-0 fix_addwish">
                               <button
                                 className="btn btn-warning btn-block btn-sm text-white hover-icon-heart"

@@ -4,7 +4,7 @@ html {
   scroll-behavior: smooth !important;
 }
 body {
-  font-family: "Quicksand", sans-serif !important;
+  font-family: 'Quicksand', sans-serif !important;
 }
 .modal-content {
   border: none;
@@ -435,8 +435,8 @@ button:hover::after {
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   padding: 0 30px;
   font-weight: 700;
   line-height: 3;
@@ -481,7 +481,7 @@ button:hover::after {
 }
 
 .logo-navbar::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -834,7 +834,7 @@ button:hover::after {
 }
 
 .content-banner:after {
-  content: " ";
+  content: ' ';
   position: absolute;
   bottom: 70px;
   right: 0;
@@ -900,7 +900,7 @@ button:hover::after {
   }
 
   .content-banner:after {
-    content: " ";
+    content: ' ';
     position: absolute;
     bottom: 80px;
     right: 0;
@@ -1087,12 +1087,7 @@ button:hover::after {
 }
 
 .btn-view::before {
-  background-image: linear-gradient(
-    80deg,
-    #aa4b6b 0%,
-    #6b6b83 25%,
-    #3b8d99 100%
-  );
+  background-image: linear-gradient(80deg, #aa4b6b 0%, #6b6b83 25%, #3b8d99 100%);
   z-index: -1;
   transition: opacity 240ms linear;
   opacity: 0;
@@ -1101,7 +1096,7 @@ button:hover::after {
 .btn-view::before,
 .btn-view::after {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   right: 0;
   bottom: 0;
@@ -1109,7 +1104,7 @@ button:hover::after {
 }
 
 .btn-view::after {
-  content: "";
+  content: '';
   height: 150%;
   width: 0.25em;
   background-color: #fff;
@@ -1172,7 +1167,7 @@ button:hover::after {
 }
 
 .content-product-sale::before {
-  content: " ";
+  content: ' ';
   position: absolute;
   top: 100%;
   left: 0;
@@ -1189,8 +1184,8 @@ button:hover::after {
   gap: 20px;
   padding: 30px 0;
   grid-template-areas:
-    "h1 h2 h2 h3"
-    "h1 h4 h5 h6";
+    'h1 h2 h2 h3'
+    'h1 h4 h5 h6';
   overflow: hidden;
 }
 
@@ -1260,8 +1255,8 @@ button:hover::after {
     font-size: 25px;
   }
   .quantity-cart:before {
-    top: -20%;
-    right: 5%;
+    top: 5%;
+    right: 10%;
     font-size: 0.8rem;
   }
 

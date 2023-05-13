@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { AiOutlineProfile } from 'react-icons/ai';
+import { AiOutlineProfile, AiOutlineHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import Categories from '../API/Categories';
 import ProductAPI from '../API/ProductAPI';
@@ -65,7 +65,7 @@ function Home() {
                       <div className="col-lg-6">
                         {/* Để tắt modal phải có class="close" và data-dissmiss="modal" và aria-label="Close" */}
                         <a
-                          className="close p-4"
+                          className="close p-4 close-Modalpopup"
                           type="button"
                           href="#section_product"
                           data-dismiss="modal"
@@ -103,7 +103,7 @@ function Home() {
                             </Card.Text>
                           )}
                           <p className="text-small mb-4">{value.description}</p>
-                          <div className="row align-items-stretch mb-4">
+                          <div className="mb-4">
                             <div className="col-sm-12 pl-sm-0 fix_addwish mb-2">
                               <a href={`/detail/${value._id}`} className="btn-warning btn btn-base btn-block">
                                 <AiOutlineProfile /> Thông tin sản phẩm
@@ -114,7 +114,7 @@ function Home() {
                                 className="btn btn-dark btn-base btn-block"
                                 onClick={() => addWishlist(value._id, value.size)}
                               >
-                                <i className="far fa-heart mr-2"></i>Thêm danh sách yêu thích
+                                <AiOutlineHeart />Thêm danh sách yêu thích
                               </button>
                             </div>
                           </div>
