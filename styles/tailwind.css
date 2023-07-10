@@ -654,6 +654,7 @@ button:hover::after {
   color: gray;
   z-index: 10;
   visibility: hidden;
+  transition: all 0.25s ease-in-out;
 }
 
 .nav-menu-over:hover .nav-menu-item {
@@ -663,6 +664,7 @@ button:hover::after {
 .nav-item-link:hover {
   transform: translateX(20px);
   color: #efb93b;
+  transition: all 0.25s linear;
 }
 
 .nav-menu-over {
@@ -673,7 +675,6 @@ button:hover::after {
 .nav-item-link {
   padding: 2px 30px;
   width: 250px;
-  transition: all 0.25s ease-in-out;
 }
 
 .under-navbar {
