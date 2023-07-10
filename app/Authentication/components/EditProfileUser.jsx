@@ -34,7 +34,8 @@ const EditProfileUser = (props) => {
     }
   }, [actionData, actionData?.errorGlobal, isSubmitting]);
 
-  const onSubmit = async (id) => submit({ ...dataUser, id, type: 'updateUser' });
+  const onSubmit = async (id) =>
+    submit({ ...dataUser, id, type: 'updateUser', avatar: avatarUpload ?? dataUser.avatar });
 
   return (
     <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
