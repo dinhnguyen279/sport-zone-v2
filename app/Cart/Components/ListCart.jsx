@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import { AiFillCaretLeft, AiFillCaretRight, AiFillWarning } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import ModalDelete from './ModalDelete';
 
@@ -92,6 +92,7 @@ function ListCart(props) {
                   className="inc-btn p-0"
                   style={{ cursor: 'pointer' }}
                   onClick={() => handlerUp(val.idUser, val.idProduct, val.quantity, val.size)}
+                  disabled={val.maximum === true ? true : false}
                 >
                   <AiFillCaretRight />
                 </Button>
@@ -126,7 +127,11 @@ function ListCart(props) {
                 ₫
               </p>
             </div>
-
+            {val.error !== undefined && (
+              <div className="error-stock">
+                <AiFillWarning className="mr-2" /> {val.error}
+              </div>
+            )}
             <div className="mt-1 col-md-12">
               <hr className="border-bottom" style={{ borderColor: '#1d1d1d' }} />
             </div>

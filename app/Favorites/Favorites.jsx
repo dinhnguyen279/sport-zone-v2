@@ -184,7 +184,7 @@ const Favorites = (props) => {
                             onClick={() => handleShow(val.id, val.idUser, val.idProduct, val.size)}
                             className="reset-anchor remove_cart btn-base"
                           >
-                            <AiOutlineClose className="text-muted text-base" />
+                            <i className="fas fa-trash-alt text-muted"></i>
                           </button>
                         </div>
                         <div className="wishlist-item col-lg-3 col-md-5">
@@ -207,7 +207,7 @@ const Favorites = (props) => {
                             onClick={() => handleShow(val.id, val.idUser, val.idProduct, val.size)}
                             className="reset-anchor remove_cart btn-base"
                           >
-                            <AiOutlineClose className="text-muted text-base" />
+                            <i className="fas fa-trash-alt text-muted"></i>
                           </button>
                           <p className="py-3 text-lg">{parseInt(val.price).toLocaleString()}₫</p>
                           <button
