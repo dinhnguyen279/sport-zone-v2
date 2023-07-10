@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListCart from './Components/ListCart';
 
 import axios from 'axios';
@@ -9,7 +9,6 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { Link, Navigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
-import { CountContext } from '../Context/CountContext';
 import { HOST } from '../domain/host/host';
 import mainLayoutFacade from '../utils/mainLayoutFacade';
 
@@ -21,10 +20,11 @@ function Cart(props) {
 
   const [total, setTotal] = useState();
 
-  const [fetched, setFetched] = useState(false)
+  const [fetched, setFetched] = useState(false);
   // const [loadAPI, setLoadAPI] = useState(false);
   const [getCartById, setCartById] = useState([]);
   const [redirect, setRedirect] = useState(false);
+  const [unCheckout, setUnCheckout] = useState(false);
   // Kiểm tra id nếu idUser không có thì lấy id Khách
 
   // Lấy dữ liệu từ Cart ra
@@ -83,7 +83,6 @@ function Cart(props) {
         await axios.put(`${HOST}/updateCart${query}`);
         await setReloadCount(false);
         setFetched(false);
-
       };
 
       fetchPut();
@@ -91,12 +90,23 @@ function Cart(props) {
     }
   };
 
+  // Hàm này dùng để kiểm tra trong giỏ hàng có sản phẩm hết hạn
+  const validateCheckout = () => {
+    const listError = getCartById.some((val) => val.error !== undefined);
+    return listError;
+  };
+
   //Hàm này dùng để redirect đến page checkout
 
   const onCheckout = () => {
     if (getCartById === undefined && getCartById.length === 0) {
       toast('Vui Lòng Kiểm Tra Lại Giỏ Hàng!', { type: 'warning' });
+      return;
+    }
 
+    if (validateCheckout()) {
+      setUnCheckout(true);
+      toast('Vui Lòng Kiểm Tra Lại Giỏ Hàng!', { type: 'warning' });
       return;
     }
 
@@ -162,7 +172,12 @@ function Cart(props) {
                   </ul>
                   <div>
                     {redirect && <Navigate replace to="/checkout" />}
-                    <button type="button" className="btn btn-dark btn-sm text-uppercase w-100" onClick={onCheckout}>
+                    <button
+                      type="button"
+                      className="btn btn-dark btn-sm text-uppercase w-100"
+                      onClick={onCheckout}
+                      disabled={unCheckout}
+                    >
                       Tiến hành thanh toán
                     </button>
                   </div>
