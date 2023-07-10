@@ -152,6 +152,15 @@ const EditProfileUser = (props) => {
         <Button className="w-100" onClick={() => onSubmit(dataUser._id)} type="button">
           Cập nhật
         </Button>
+        {!isSubmitting ? (
+          <Button className="w-100" onClick={() => onSubmit(dataUser._id)} type="button">
+            Cập nhật
+          </Button>
+        ) : (
+          <div className="spinner-border" style={{ margin: 'auto' }} role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        )}
       </Modal.Footer>
     </Modal>
   );

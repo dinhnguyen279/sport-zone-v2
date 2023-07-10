@@ -1,8 +1,8 @@
 import { Form, Link, useActionData } from '@remix-run/react';
 import React, { useEffect, useState, useTransition } from 'react';
-import { AiFillEye, AiFillEyeInvisible, AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
-import './Auth.css';
+import { AiFillEye, AiFillEyeInvisible, AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import './Auth.css';
 
 function SignIn() {
   // Show/hide password
@@ -27,8 +27,8 @@ function SignIn() {
           <div className="wrap-login100 signInForm p-l-55 p-r-55 p-t-55 p-b-50 col-md-12 col-xl-8">
             <span className="login100-form-title">Đăng nhập</span>
             <div className="wrap-input100 validate-input">
-              <AiOutlineMail className="icon-form" />
-              <input className="input100" type="email" placeholder="Email" name="email" />
+              <AiOutlineUser className="icon-form" />
+              <input className="input100" type="email" placeholder="Email hoặc Số Điện Thoại" name="email" />
             </div>
             {actionData?.errors?.email && <p className="text-danger">{actionData?.errors?.email}</p>}
             <div className="wrap-input100 validate-input">

@@ -57,8 +57,9 @@ const signinRequest = async (email, password) => {
     errorGlobal: undefined,
   };
   const data = {
-    email: email,
+    email: isNaN(email) ? email : undefined,
     password: password,
+    phone: !isNaN(email) ? email : undefined,
   };
   try {
     const res = await axiosClient.post(SIGNIN_URL, data);
