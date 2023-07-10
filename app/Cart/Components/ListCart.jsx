@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { AiFillCaretLeft, AiFillCaretRight, AiFillWarning } from 'react-icons/ai';
+import { BsFillTrash3Fill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import ModalDelete from './ModalDelete';
 
@@ -113,7 +114,7 @@ function ListCart(props) {
                 style={{ cursor: 'pointer' }}
                 onClick={() => handleShow(val.idUser, val.idProduct, val.size)}
               >
-                <i className="fas fa-trash-alt text-muted"></i>
+                <BsFillTrash3Fill className="fas fa-trash-alt text-muted" />
               </button>
               {/* Modal hiện popup xác nhận xóa sản phẩm */}
               {show && <ModalDelete show={show} handleClose={handleClose} handlerDelete={handlerDelete} />}

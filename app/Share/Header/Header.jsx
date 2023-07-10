@@ -126,6 +126,10 @@ function Header(props) {
         <Container>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
           <a className="logo-navbar h4" href="/">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             Sports Zone
           </a>
 
@@ -134,6 +138,10 @@ function Header(props) {
             <Offcanvas.Header closeButton>
               <Offcanvas.Title>
                 <a className="logo-navbar h4" href="/">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                   Sports Zone
                 </a>
               </Offcanvas.Title>

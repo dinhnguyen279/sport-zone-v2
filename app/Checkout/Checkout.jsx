@@ -398,7 +398,7 @@ function Checkout(props) {
                           </div>
                           <img src={Image.logoPay} className="img-logo-pay" alt="logoPay" />
                         </div>
-                        <div className="content-pay-method">
+                        {/* <div className="content-pay-method">
                           <div className="">
                             <input
                               type="radio"
@@ -409,7 +409,7 @@ function Checkout(props) {
                             <label className="ml-3">Momo</label>
                           </div>
                           <img src={Image.logoMomo} className="img-logo-pay" alt="logoMomo" />
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

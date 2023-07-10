@@ -462,7 +462,7 @@ export function Detail() {
             disabled={idUser === null ? true : false}
           ></textarea>
         </div>
-        <div className="d-flex flex-column flex-sm-row justify-content-between py-4">
+        <div className="d-flex flex-column flex-sm-row justify-content-between py-4 items-center ">
           <div className="d-flex mb-3">
             <span className="mt-2">Đánh giá: </span>
             &nbsp; &nbsp;
@@ -481,9 +481,9 @@ export function Detail() {
             </span>
           </div>
           <div className="btn-send-comment">
-            <a className="btn btn-dark btn-base btn-block text-white" onClick={submitComment}>
+            <button className="btn btn-dark btn-base btn-block text-white" onClick={submitComment}>
               Gửi
-            </a>
+            </button>
           </div>
         </div>
         <h2 className="h5 text-uppercase mb-4">Sản phẩm liên quan</h2>

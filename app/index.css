@@ -1031,6 +1031,7 @@ button:hover::after {
 
 .btn-send-comment {
   width: 25%;
+  text-align: end;
 }
 
 .main-img-detail img {
@@ -5653,7 +5654,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(/image/banner.jpg);
+  background-image: url(/image/banner_min.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;

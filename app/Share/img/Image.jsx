@@ -1,5 +1,6 @@
 const Image = {
   banner: '/image/banner.jpg',
+  banner_min: '/image/banner_min.jpg',
   banner1: '/image/banner1.jpg',
   banner2: '/image/banner2.jpg',
   banner3: '/image/banner3.jpg',
