@@ -50,11 +50,11 @@ function SignUp() {
               <input className="input100" name="password" type={typePassWord} placeholder="Mật khẩu" />
               {typePassWord === 'password' ? (
                 <button type="button" className="show-password" onClick={() => setTypePassWord('text')}>
-                  <AiFillEye />
+                  <AiFillEyeInvisible />
                 </button>
               ) : (
                 <button type="button" className="show-password" onClick={() => setTypePassWord('password')}>
-                  <AiFillEyeInvisible />
+                  <AiFillEye />
                 </button>
               )}
             </div>

@@ -1,15 +1,14 @@
 import axios from 'axios';
 import queryString from 'query-string';
-import React, { useContext, useEffect, useState } from 'react';
-import { AiOutlineClose, AiOutlineShoppingCart } from 'react-icons/ai';
+import React, { useEffect, useState } from 'react';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { CountContext } from '../Context/CountContext';
 import ModalDeleted from '../components/ModalDeleted';
 import ModalDeletedAll from '../components/ModalDeletedAll';
 import { HOST } from '../domain/host/host';
-import './Favorites.css';
 import mainLayoutFacade from '../utils/mainLayoutFacade';
+import './Favorites.css';
 
 const Favorites = (props) => {
   const { idUser, setReloadCount } = mainLayoutFacade.useFacade();
