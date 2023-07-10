@@ -5093,3 +5093,11 @@ code {
 .breadcrumb-item.active {
   color: #aaa;
 }
+.main-404 {
+  margin-top: 30px;
+}
+@media only screen and (max-width: 991px) {
+  .main-404 {
+    margin-top: 100px;
+  }
+}

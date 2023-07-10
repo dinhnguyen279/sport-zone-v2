@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
   return (
-    <div className="m-t-160">
+    <div className="main-404">
       <div className="container py-4">
         <h1>
           {' '}
