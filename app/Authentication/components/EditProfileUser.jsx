@@ -1,29 +1,40 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import { useActionData, useSubmit, useTransition } from '@remix-run/react';
+import React, { useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import FileBase64 from 'react-file-base64';
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import { HOST } from '../../domain/host/host';
 const EditProfileUser = (props) => {
-  const URL_UPDATEUSER = `${HOST}/updateUser`;
-
   const dataUser = props.getDataUser;
   const setGetData = props.setGetDataUser;
   const [typePassWord, setTypePassWord] = useState('password');
 
-  const onSubmit = async (id) => {
-    await axios
-      .put(`${URL_UPDATEUSER}/${id}`, dataUser)
-      .then((res) => console.log('res', res))
-      .catch((err) => console.error('err', err));
-    toast('Bạn Đã cập nhật thông tin Thành Công!', { type: 'success' });
+  const actionData = useActionData();
+  const transition = useTransition();
+  const isSubmitting = Boolean(transition.submission);
 
-    setTimeout(function () {
-      window.location.reload();
-    }, 1200);
-  };
+  const submit = useSubmit();
+
+  const [avatarUpload, setAvatarUpload] = useState('');
+
+  const onChangeAvatar = (e) => submit({ avatar: e.target.files[0], type: 'updateImage' });
+
+  useEffect(() => {
+    if (!isSubmitting && actionData.message) {
+      if (actionData.message) {
+        toast(actionData.message, { type: 'success' });
+      }
+
+      if (actionData.error) {
+        toast(actionData.error, { type: 'error' });
+      }
+      if (actionData.avatar) {
+        setAvatarUpload(actionData.avatar);
+      }
+    }
+  }, [actionData, actionData?.errorGlobal, isSubmitting]);
+
+  const onSubmit = async (id) => submit({ ...dataUser, id, type: 'updateUser' });
 
   return (
     <Modal {...props} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
@@ -35,16 +46,18 @@ const EditProfileUser = (props) => {
       <Modal.Body>
         <Form className="input-edit-user">
           <Form.Group className="mb-4 main-img-profile" controlId="formBasicEmail">
-            <img src={dataUser.avatar} alt="Hình ảnh người dùng" className="img-profile" />
-            <FileBase64
-              accept="image/*"
-              multiple={false}
-              type="file"
-              className="form-control-file"
-              id="image"
-              value={dataUser.avatar}
-              onDone={({ base64 }) => setGetData({ ...dataUser, avatar: base64 })}
+            <img
+              src={
+                avatarUpload
+                  ? avatarUpload
+                  : dataUser.avatar
+                  ? dataUser.avatar
+                  : 'https://vnn-imgs-f.vgcloud.vn/2020/03/23/11/trend-avatar-1.jpg'
+              }
+              alt="Hình ảnh người dùng"
+              className="img-profile"
             />
+            <input type="file" onChange={onChangeAvatar} />
           </Form.Group>
 
           <Form.Group className="mb-3 input-text position-relative" controlId="formBasicEmail">
@@ -135,7 +148,7 @@ const EditProfileUser = (props) => {
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="w-100" onClick={() => onSubmit(dataUser._id)}>
+        <Button className="w-100" onClick={() => onSubmit(dataUser._id)} type="button">
           Cập nhật
         </Button>
       </Modal.Footer>
