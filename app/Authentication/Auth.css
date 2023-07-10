@@ -568,7 +568,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background-image: url(../Share/img/banner.jpg);
+  background-image: url(/image/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
@@ -710,7 +710,7 @@ iframe {
 }
 
 .signup100-form-title::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 22%;
   left: 50%;
@@ -736,7 +736,7 @@ iframe {
 }
 
 .login100-form-title::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 28%;
   left: 50%;
@@ -765,7 +765,7 @@ iframe {
     color: #555555;
   }
   .login100-form-title::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 25%;
     left: 50%;
@@ -783,7 +783,7 @@ iframe {
   }
 
   .signup100-form-title::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 20%;
     left: 50%;
@@ -898,7 +898,7 @@ input.input100 {
 
 .focus-input100-1::before,
 .focus-input100-2::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 0;
@@ -918,7 +918,7 @@ input.input100 {
 
 .focus-input100-1::after,
 .focus-input100-2::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 1px;
@@ -1019,12 +1019,7 @@ input.input100 {
 }
 
 .login100-form-btn::before {
-  background-image: linear-gradient(
-    45deg,
-    #aa4b6b 0%,
-    #6b6b83 25%,
-    #3b8d99 100%
-  );
+  background-image: linear-gradient(45deg, #aa4b6b 0%, #6b6b83 25%, #3b8d99 100%);
   z-index: -1;
   transition: opacity 240ms linear;
   opacity: 0;
@@ -1037,7 +1032,7 @@ input.input100 {
 .login100-form-btn::before,
 .login100-form-btn::after {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   right: 0;
   bottom: 0;
@@ -1045,7 +1040,7 @@ input.input100 {
 }
 
 .login100-form-btn::after {
-  content: "";
+  content: '';
   height: 150%;
   width: 0.25em;
   background-color: #fff;
@@ -1112,7 +1107,7 @@ input.input100 {
 }
 
 .alert-validate::after {
-  content: "\f12a";
+  content: '\f12a';
   display: block;
   position: absolute;
   color: #c80000;
