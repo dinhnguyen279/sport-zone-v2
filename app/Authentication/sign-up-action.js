@@ -22,14 +22,15 @@ export const action = async ({ request }) => {
   ) {
     return json({ errors });
   }
-
-  const res = await signupRequest(email, password);
-
-  if (res.success) {
-    return redirect('/signin');
+  try {
+    const res = await signupRequest(email, password, phone, fullname);
+    if (res.success) {
+      return redirect('/signin');
+    }
+    return json({ ...res });
+  } catch (error) {
+    return json({ error });
   }
-
-  return json({ ...res });
 };
 
 //validate

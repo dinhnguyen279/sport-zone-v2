@@ -19,10 +19,10 @@ function SignUp() {
   const isSubmitting = Boolean(transition.submission);
 
   useEffect(() => {
-    if (!isSubmitting && actionData?.errorGlobal) {
-      toast('Email đã được đăng ký', { type: 'warning' });
+    if (!isSubmitting && actionData?.error) {
+      toast(actionData?.error, { type: 'warning' });
     }
-  }, [actionData, actionData?.errorGlobal, isSubmitting]);
+  }, [actionData, actionData?.error, isSubmitting]);
 
   // Show/hide password
 

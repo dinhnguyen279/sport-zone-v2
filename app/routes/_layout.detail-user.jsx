@@ -23,19 +23,22 @@ export const action = async ({ request }) => {
     const email = form.get('email');
     const password = form.get('password');
     const URL_UPDATEUSER = `${HOST}/updateUser`;
+    try {
+      await axios.put(`${URL_UPDATEUSER}/${id}`, {
+        avatar,
+        fullname,
+        address,
+        birthday,
+        sex,
+        phone,
+        email,
+        password,
+      });
 
-    await axios.put(`${URL_UPDATEUSER}/${id}`, {
-      avatar,
-      fullname,
-      address,
-      birthday,
-      sex,
-      phone,
-      email,
-      password,
-    });
-
-    return json({ message: 'Bạn Đã cập nhật thông tin Thành Công!' });
+      return json({ message: 'Bạn Đã cập nhật thông tin Thành Công!' });
+    } catch (error) {
+      return json({ error: 'Cập Nhật Thông Tin Thất Bại!' });
+    }
   }
 
   if (type === 'updateImage') {
