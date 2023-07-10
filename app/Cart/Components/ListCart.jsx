@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, Card, Modal } from "react-bootstrap";
-import Image from "../../Share/img/Image";
-import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import axios from "axios";
-import { HOST } from "../../domain/host/host";
-import ModalDelete from "./ModalDelete";
+import React, { useState } from 'react';
+import { Button, Card } from 'react-bootstrap';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import ModalDelete from './ModalDelete';
 
 function ListCart(props) {
-
   const listProduct = props.getCart;
   const onDeleteCart = props.onDeleteCart;
   const onUpdateCount = props.onUpdateCount;
 
   const [show, setShow] = useState(false);
   const [dataDelete, setDataDelete] = useState({
-    idUser: "",
-    idProduct: "",
-    size: ""
-  })
+    idUser: '',
+    idProduct: '',
+    size: '',
+  });
 
   const handleClose = () => setShow(false);
 
   const handleShow = (idUser, idProduct, size) => {
-    const data = { idUser: idUser, idProduct: idProduct, size: size }
+    const data = { idUser: idUser, idProduct: idProduct, size: size };
     setDataDelete(data);
     setShow(true);
-  }
+  };
 
   const handlerDelete = () => {
     if (!onDeleteCart) {
@@ -79,8 +75,9 @@ function ListCart(props) {
                 <Button
                   variant="dark"
                   className="dec-btn p-0"
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: 'pointer' }}
                   onClick={() => handlerDown(val.idUser, val.idProduct, val.quantity, val.size)}
+                  disabled={val.quantity === 1 ? true : false}
                 >
                   <AiFillCaretLeft />
                 </Button>
@@ -93,7 +90,7 @@ function ListCart(props) {
                 <Button
                   variant="dark"
                   className="inc-btn p-0"
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: 'pointer' }}
                   onClick={() => handlerUp(val.idUser, val.idProduct, val.quantity, val.size)}
                 >
                   <AiFillCaretRight />
@@ -101,7 +98,10 @@ function ListCart(props) {
               </div>
               <div className="align-middle border-0">
                 <p className="mb-0 small">
-                  {(parseInt(val.promotionPrice ? val.promotionPrice : val.price) * parseInt(val.quantity)).toLocaleString()}₫
+                  {(
+                    parseInt(val.promotionPrice ? val.promotionPrice : val.price) * parseInt(val.quantity)
+                  ).toLocaleString()}
+                  ₫
                 </p>
               </div>
             </div>
@@ -109,23 +109,21 @@ function ListCart(props) {
               <button
                 href="/cart"
                 className="reset-anchor remove_cart"
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
                 onClick={() => handleShow(val.idUser, val.idProduct, val.size)}
               >
                 <i className="fas fa-trash-alt text-muted"></i>
               </button>
               {/* Modal hiện popup xác nhận xóa sản phẩm */}
-              {show &&
-                <ModalDelete show={show} handleClose={handleClose} handlerDelete={handlerDelete} />
-              }
+              {show && <ModalDelete show={show} handleClose={handleClose} handlerDelete={handlerDelete} />}
             </div>
             <div className="col-md-12 d-flex justify-content-between">
-              <p style={{ fontWeight: "700" }}>Thành tiền:</p>
-              <p
-                className="mb-0 small"
-                style={{ color: "red", fontWeight: "700" }}
-              >
-                {(parseInt(val.promotionPrice ? val.promotionPrice : val.price) * parseInt(val.quantity)).toLocaleString()}₫
+              <p style={{ fontWeight: '700' }}>Thành tiền:</p>
+              <p className="mb-0 small" style={{ color: 'red', fontWeight: '700' }}>
+                {(
+                  parseInt(val.promotionPrice ? val.promotionPrice : val.price) * parseInt(val.quantity)
+                ).toLocaleString()}
+                ₫
               </p>
             </div>
 
@@ -134,8 +132,7 @@ function ListCart(props) {
             </div>
           </div>
         </div>
-      ))
-      }
+      ))}
     </>
   );
 }
