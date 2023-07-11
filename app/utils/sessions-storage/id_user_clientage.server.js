@@ -8,6 +8,7 @@ const { getSession, commitSession, destroySession } = createCookieSessionStorage
     sameSite: 'none',
     secrets: ['s3cret1'],
     secure: true,
+    expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30), // 30 days
   },
 });
 

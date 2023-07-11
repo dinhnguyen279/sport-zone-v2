@@ -89,10 +89,9 @@ const signupRequest = async (email, password, phone, fullName) => {
     fullName,
   };
   try {
-    await axiosClient.post(REGISTER_URL, data);
+    const res = await axiosClient.post(REGISTER_URL, data);
     response.success = true;
   } catch (error) {
-    console.log(error);
     response.errorGlobal = true;
   }
   return response;

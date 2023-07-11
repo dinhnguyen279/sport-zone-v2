@@ -22,11 +22,23 @@ export const action = async ({ request }) => {
     const headers = new Headers();
     const { idSessions, sessions } = await parseIdFromHeader(request);
     idSessions.idUser.set(ID_USER, res.data._id);
-    headers.append('Set-Cookie', await sessions.idUserSessions.commitSession(idSessions.idUser));
+    headers.append(
+      'Set-Cookie',
+      await sessions.idUserSessions.commitSession(idSessions.idUser, {
+        expires: tokenExpiresAfter1Month(),
+      }),
+    );
+
     return redirect('/', { headers });
   }
 
   return json({ ...res });
+};
+
+const tokenExpiresAfter1Month = () => {
+  const date = new Date();
+  date.setMonth(date.getMonth() + 1);
+  return date;
 };
 
 //validate
