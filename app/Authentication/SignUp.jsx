@@ -70,6 +70,10 @@ function SignUp() {
             <div className="login-box">
               <button type="submit">
                 {/* <button className="login100-form-btn" type='submit'> */}
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
                 Đăng ký
               </button>
             </div>

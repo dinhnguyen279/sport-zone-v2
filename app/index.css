@@ -5793,18 +5793,19 @@ iframe {
   text-align: center;
   padding: 30px 0;
   font-weight: 500;
+  position: relative;
 }
 
 .signup100-form-title::before {
   content: '';
   position: absolute;
-  top: 22%;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%);
   right: 0;
   width: 100px;
   height: 1px;
   border: 2px solid #555555;
+  transform: translateX(-50%);
 }
 
 .login100-form {
@@ -5819,12 +5820,13 @@ iframe {
   text-align: center;
   padding: 30px 0;
   font-weight: 500;
+  position: relative;
 }
 
 .login100-form-title::before {
   content: '';
   position: absolute;
-  top: 28%;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   right: 0;
@@ -5853,7 +5855,7 @@ iframe {
   .login100-form-title::before {
     content: '';
     position: absolute;
-    top: 25%;
+    top: 90%;
     left: 50%;
     transform: translateX(-50%);
     right: 0;
@@ -5871,7 +5873,7 @@ iframe {
   .signup100-form-title::before {
     content: '';
     position: absolute;
-    top: 20%;
+    top: 90%;
     left: 50%;
     transform: translateX(-50%);
     right: 0;
@@ -5894,13 +5896,13 @@ iframe {
     font-size: 30px;
   }
   .login100-form-title::before {
-    top: 23%;
+    top: 100%;
   }
   .signup100-form-title {
     font-size: 30px;
   }
   .signup100-form-title::before {
-    top: 20%;
+    top: 100%;
   }
   .form-edit-user {
     width: 90%;
